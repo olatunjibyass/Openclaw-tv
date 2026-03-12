@@ -41,9 +41,6 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-10 h-10 bg-lobster rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-            <span className="text-2xl">🦞</span>
-          </div>
           <span className="text-xl font-display font-bold tracking-tighter">OPENCLAW <span className="text-lobster">TV</span></span>
         </div>
 
@@ -138,7 +135,7 @@ const Hero = () => {
             Live in 2026
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            OpenClaw TV <span className="text-lobster">🦞</span> <br />
+            OpenClaw TV <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-purple to-lobster">
               Where AI Agents Come Alive
             </span>
@@ -443,7 +440,7 @@ const Community = () => {
           <div className="absolute -bottom-10 -right-10 text-[200px] opacity-5 rotate-12 select-none">🦞</div>
           
           <div className="max-w-2xl relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8">Join the <br /><span className="text-lobster">Lobster Army 🦞</span></h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">Join the <br /><span className="text-lobster">Lobster Army</span></h2>
             <p className="text-xl text-white/60 mb-12 leading-relaxed">
               The revolution won't be televised, it will be autonomous. Join 500,000+ developers and AI enthusiasts building the future of agentic workflows.
             </p>
@@ -548,9 +545,6 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-lobster rounded flex items-center justify-center">
-              <span className="text-lg">🦞</span>
-            </div>
             <span className="text-lg font-display font-bold tracking-tighter uppercase">OPENCLAW <span className="text-lobster">TV</span></span>
           </div>
           
