@@ -146,6 +146,18 @@ const Hero = () => {
           <p className="text-lg text-white/60 mb-8 max-w-xl leading-relaxed">
             24/7 live streams, tutorials, agent swarm demos, breakdowns, and the latest from the OpenClaw community. Watch autonomous agents in action — clearing inboxes, automating workflows, building worlds — all powered by the fastest-growing open-source AI agent framework.
           </p>
+          
+          <div className="mb-8 p-1 bg-white/5 border border-white/10 rounded-2xl flex flex-col sm:flex-row gap-2 max-w-lg">
+            <input 
+              type="email" 
+              placeholder="Join the waitlist..." 
+              className="flex-1 bg-transparent px-4 py-3 focus:outline-none text-sm"
+            />
+            <button className="px-6 py-3 bg-lobster text-white font-bold rounded-xl text-sm hover:opacity-90 transition-opacity">
+              Get Notified
+            </button>
+          </div>
+
           <div className="flex flex-wrap gap-4">
             <a 
               href="#streams" 
@@ -472,6 +484,62 @@ const Community = () => {
   );
 };
 
+const Newsletter = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    // Simulate API call for now
+    setTimeout(() => {
+      setStatus('success');
+      setEmail('');
+    }, 1500);
+  };
+
+  return (
+    <section className="py-24 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="relative p-12 rounded-[32px] overflow-hidden bg-white/5 border border-white/10 text-center">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lobster/10 to-transparent pointer-events-none" />
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay in the Loop</h2>
+            <p className="text-white/50 mb-8">Get the latest agent swarms, tutorials, and community highlights delivered straight to your inbox.</p>
+            
+            {status === 'success' ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="p-4 bg-emerald-500/20 border border-emerald-500/30 rounded-2xl text-emerald-400 font-bold"
+              >
+                Welcome to the swarm! 🦞 Check your inbox soon.
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+                <input 
+                  type="email" 
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email" 
+                  className="flex-1 bg-black/40 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-lobster transition-all"
+                />
+                <button 
+                  disabled={status === 'loading'}
+                  className="px-8 py-4 bg-lobster text-white font-bold rounded-2xl hover:scale-105 transition-all disabled:opacity-50"
+                >
+                  {status === 'loading' ? 'Joining...' : 'Join Newsletter'}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -522,6 +590,7 @@ export default function App() {
         <About />
         <StreamSection />
         <Community />
+        <Newsletter />
       </main>
       <Footer />
       
